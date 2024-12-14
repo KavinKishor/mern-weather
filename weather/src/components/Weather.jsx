@@ -14,12 +14,12 @@ const Weatherapp = () => {
   const [weather, setWeather] = useState(null);
   const [newCity, setNewCity] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const BACKEND_URL = "https://mern-weather-vkvt.onrender.com";
   // getting weather data based on user search
   const fetchWeather = async (cityName) => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3001/api/weather", {
+      const res = await axios.get(`${BACKEND_URL}/api/weather`, {
         params: { city: cityName },
       });
       const result = res.data.result;
@@ -52,7 +52,7 @@ const Weatherapp = () => {
   const saveCity = async (cityName) => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3001/api/city", {
+      const res = await axios.post(`${BACKEND_URL}/api/city`, {
         city: cityName,
       });
       const result = res.data;
@@ -69,7 +69,7 @@ const Weatherapp = () => {
     const fetchCities = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3001/api/allcities");
+        const res = await axios.get(`${BACKEND_URL}/api/allcities`);
         const result = res.data;
         setNewCity(result.cities);
         setLoading(false);
