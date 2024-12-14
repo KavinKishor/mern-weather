@@ -1,0 +1,86 @@
+.weather-widget{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    height:490px;
+    border-radius: 25px;
+    padding: 20px;
+background-image: linear-gradient(to bottom, #1e1634, #202749, #1e395d, #184c6f, #0f5f80, #096c89, #0d7890, #198596, #278e98, #369799, #45a09a, #55a89a);    /* background-image: linear-gradient(to bottom, #055a59, #00545e, #004d61, #004662, #003e60, #01496e, #01547d, #005f8c, #0083ac, #0a879b, #03b0b3, #3cb6a2); */
+    color: white;
+    box-shadow: 0 4px 8px rgba(97, 87, 87, 0.5);
+}
+
+@keyframes moveCloud{
+    0%,
+    100%{
+        transform: translateX(-65px);
+    }
+    50%{
+        transform: translateX(65px);
+    }
+}
+
+.cloud{
+font-size: 60px;
+color: skyblue;
+animation: moveCloud 8s ease-in-out infinite;
+}
+
+.cloud-container{
+position: absolute;
+top:200px;
+left: 50%;
+transform: translateX(-50%);
+
+}
+.temprature{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.feels-like{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+.location{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.input-form{
+    display: flex;
+    gap: 2px;
+}
+.city-list{
+    width:40;
+    display: flex;
+    flex-direction: column;
+    background-color: #2f8b8d;
+    color: white;
+    height: 490px;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(97, 87, 87, 0.5);
+  
+}
+.city-list .list {
+    list-style: none;
+    cursor: pointer;
+    padding: 5px;
+    text-align: start;
+    max-height: 450px;
+    overflow-y: scroll;
+    
+
+}
+.city-list .list::-webkit-scrollbar{
+ 
+    height: 150px;
+}
+.city-list .list > li{
+    padding: 5px
+}
