@@ -14,7 +14,9 @@ const Weatherapp = () => {
   const [weather, setWeather] = useState(null);
   const [newCity, setNewCity] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const BACKEND_URL = "https://mern-weather-vkvt.onrender.com";
+
   // getting weather data based on user search
   const fetchWeather = async (cityName) => {
     setLoading(true);
@@ -82,9 +84,7 @@ const Weatherapp = () => {
     fetchCities();
   }, [city, newCity]);
 
-  const handleFetch = async () => {
-    fetchWeather(city);
-  };
+  
 
   // get the details of daytime or night time
 
@@ -96,7 +96,7 @@ const Weatherapp = () => {
 
   return (
     <Space>
-      <Space className="weather-widget">
+      <Space className={ isDay ? "weather-widget-day" : "weather-widget"  }>
         <Typography.Text
           style={{ color: "white", fontSize: "2rem", fontFamily: "fantasy" }}
         >
@@ -114,7 +114,7 @@ const Weatherapp = () => {
               type="primary"
               icon={<SearchOutlined />}
               iconPosition={"end"}
-              onClick={handleFetch}
+              onClick={() => fetchWeather(city)}
             >
               Search
             </Button>
@@ -191,7 +191,11 @@ const Weatherapp = () => {
         <ul className="list" style={{ maxHeight: "400px", overflowY: "auto" }}>
           {newCity.length > 0 ? (
             newCity.map((c) => (
-              <li key={c._id} onClick={() => fetchWeather(c.city)}>
+              <li
+                key={c._id}
+                onClick={() => fetchWeather(c.city)}
+                loading={loading}
+              >
                 {c.city}
               </li>
             ))

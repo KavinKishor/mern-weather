@@ -84,3 +84,17 @@ transform: translateX(-50%);
 .city-list .list > li{
     padding: 5px
 }
+.weather-widget-day{
+    position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70vw;
+        height: 490px;
+        border-radius: 25px;
+        padding: 20px;
+    background-image: linear-gradient(to bottom, #3e7c89, #0f8e90, #00a087, #32ae71, #6bba4f, #7bbe3e, #8dc129, #a0c301, #8bc40a, #73c417, #57c424, #2cc431);
+        color: white;
+        box-shadow: 0 4px 8px rgba(97, 87, 87, 0.5);
+    }
